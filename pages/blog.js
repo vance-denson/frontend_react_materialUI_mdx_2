@@ -1,10 +1,8 @@
+import { Typography, Grid, Button } from "@material-ui/core";
 import Head from "next/head";
-import Image from "next/image";
-import "@fontsource/roboto";
-import { Button, Container, Grid, Flex, Typography } from "@material-ui/core";
 import Link from "next/link";
 
-export default function Home() {
+export default function Blog() {
   return (
     <div>
       <Head>
@@ -14,7 +12,7 @@ export default function Home() {
       </Head>
       <Grid direction="column" align="center">
         <Typography variant="h4" color="textPrimary">
-          Home
+          Blog
         </Typography>
         <Link href="/blog">
           <Button variant="contained" color="Primary">
