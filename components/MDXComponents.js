@@ -44,15 +44,15 @@ const MDXComponents = {
   h6: (props) => (
     <Typography variant="h6" align="center" color="primary" {...props} />
   ),
-  inlineCode: (props) => <Code {...props} />,
+  inlineCode: (props) => <Typography displayBlock {...props} />,
   br: (props) => <Container {...props} />,
   hr: (props) => <Divider />,
   p: (props) => <Typography {...props} />,
   ul: (props) => <List {...props} />,
   ol: (props) => <List {...props} />,
   li: (props) => <ListItem classes="" {...props} />,
-  resumeli: (props) => <ListItem {...props} />,
   a: (props) => <Button variant="contained" color="primary" {...props} />,
+  table: (props) => <Table {...props} />,
 };
 
 export default MDXComponents;
