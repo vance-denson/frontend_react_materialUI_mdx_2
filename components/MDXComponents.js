@@ -1,9 +1,16 @@
-import { Typography, Container, Divider } from "@material-ui/core";
+import {
+  Typography,
+  Container,
+  Divider,
+  List,
+  ListItem,
+  Button,
+} from "@material-ui/core";
 
 const MDXComponents = {
   h1: (props) => (
     <Typography
-      variant="h3"
+      variant="h1"
       align="center"
       color="primary"
       {...props}
@@ -12,38 +19,40 @@ const MDXComponents = {
   ),
   h2: (props) => (
     <Typography
-      variant="subtitle1"
+      variant="h2"
       align="center"
-      color="textPrimary"
+      color="primary"
       {...props}
       gutterBottom
     />
   ),
   h3: (props) => (
     <Typography
-      variant="subtitle2"
+      variant="h3"
       align="center"
-      color="textPrimary"
+      color="primary"
       {...props}
       gutterBottom
     />
   ),
   h4: (props) => (
-    <Typography variant="body1" align="center" color="secondary" {...props} />
+    <Typography variant="h4" align="center" color="primary" {...props} />
   ),
   h5: (props) => (
-    <Typography variant="body2" align="center" color="secondary" {...props} />
+    <Typography variant="h5" align="center" color="primary" {...props} />
   ),
   h6: (props) => (
-    <Typography variant="h6" align="center" color="secondary" {...props} />
+    <Typography variant="h6" align="center" color="primary" {...props} />
   ),
   inlineCode: (props) => <Code {...props} />,
   br: (props) => <Container {...props} />,
   hr: (props) => <Divider />,
   p: (props) => <Typography {...props} />,
-  ul: (props) => <Container {...props} />,
-  ol: (props) => <Container {...props} />,
-  li: (props) => <Container {...props} />,
+  ul: (props) => <List {...props} />,
+  ol: (props) => <List {...props} />,
+  li: (props) => <ListItem classes="" {...props} />,
+  resumeli: (props) => <ListItem {...props} />,
+  a: (props) => <Button variant="contained" color="primary" {...props} />,
 };
 
 export default MDXComponents;
