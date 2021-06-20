@@ -17,6 +17,8 @@ import MenuBookTwoToneIcon from "@material-ui/icons/MenuBookTwoTone";
 import CodeTwoToneIcon from "@material-ui/icons/CodeTwoTone";
 import PersonOutlineTwoToneIcon from "@material-ui/icons/PersonOutlineTwoTone";
 import Link from "next/link";
+import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   list: {
@@ -58,15 +60,22 @@ export default function LeftDrawer({ children }) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["/home", "/blog", "/projects"].map((text, index) => (
+        {["/home", "/posts/resume", "/projects", "/blog"].map((text, index) => (
           <Link href={index === 0 ? "/" : text} passHref>
             <ListItem button key={text}>
               <ListItemIcon>
                 {index === 0 ? <HomeTwoToneIcon /> : undefined}
-                {index === 1 ? <MenuBookTwoToneIcon /> : undefined}
+                {index === 1 ? <LibraryBooksIcon /> : undefined}
                 {index === 2 ? <SettingsEthernetTwoToneIcon /> : undefined}
+                {index === 3 ? <MenuBookTwoToneIcon /> : undefined}
               </ListItemIcon>
-              <ListItemText primary={`${text.substr(1, text.length)}`} />
+
+              <Typography variant="subtitle1">
+                {index === 0 ? "Home" : undefined}
+                {index === 1 ? "Resume" : undefined}
+                {index === 2 ? "Projects" : undefined}
+                {index === 3 ? "Blog: Coming Soon" : undefined}
+              </Typography>
             </ListItem>
           </Link>
         ))}
@@ -78,7 +87,9 @@ export default function LeftDrawer({ children }) {
             <ListItemIcon>
               {index === 0 ? <PersonOutlineTwoToneIcon /> : undefined}
             </ListItemIcon>
-            <ListItemText primary={text} />
+            <Typography variant="subtitle1">
+              {index === 0 ? "Login: Coming Soon" : undefined}
+            </Typography>
           </ListItem>
         ))}
       </List>
