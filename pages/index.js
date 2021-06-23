@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import "@fontsource/roboto";
+import "@fontsource/lobster";
+
 import {
   Button,
   Container,
@@ -8,12 +10,23 @@ import {
   Flex,
   Typography,
   Paper,
+  Divider,
 } from "@material-ui/core";
 import Link from "next/link";
 import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    height: "100vh",
+    backgroundImage: "url(/pexels-athena-2582937.jpg)",
+    backgroundRepeat: "none",
+    backgroundSize: "cover",
+  },
+  homeText: {
+    fontFamily: "lobster",
+    fontWeight: "200",
+  },
+  container: {
     height: "100vh",
   },
 }));
@@ -29,10 +42,18 @@ export default function Home() {
         <link rel="icon" href="/favicon-sm.ico" type="image/x-icon" />
       </Head>
       <Paper className={classes.root}>
-        <Grid direction="column" align="center">
-          <Typography variant="h4" color="textPrimary">
-            Home
+        <Grid direction="column" align="center" className={classes.container}>
+          <Typography
+            variant="h4"
+            color="textPrimary"
+            className={classes.homeText}
+            gutterBottom
+          >
+            Father. <br />
+            Developer. <br />
+            Life Long Learner.
           </Typography>
+          <Divider />
           <Link href="/blog">
             <Button variant="contained" color="Primary">
               View My Blog
