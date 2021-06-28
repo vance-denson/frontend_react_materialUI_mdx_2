@@ -2,6 +2,11 @@ import Head from "next/head";
 import Image from "next/image";
 import "@fontsource/roboto";
 import "@fontsource/lobster";
+import SocialFloat from "../components/socialFloat";
+import About from "../components/About";
+import { useState, useEffect } from "react";
+import { Collapse } from "@material-ui/core";
+import Projects from "./projects";
 
 import {
   Button,
@@ -29,10 +34,19 @@ const useStyles = makeStyles((theme) => ({
   container: {
     height: "100vh",
   },
+  aboutSection: {
+    margin: "5%",
+    backgroundColor: "rgba(0,0,0,0.2)",
+
+  }
 }));
 
 export default function Home() {
   const classes = useStyles();
+  const [load, setLoad] = useState(false);
+  useEffect(() => {
+    setLoad(true);
+  }, []);
 
   return (
     <div>
@@ -42,25 +56,28 @@ export default function Home() {
         <link rel="icon" href="/favicon-sm.ico" type="image/x-icon" />
       </Head>
       <Paper className={classes.root}>
-        <Grid direction="column" align="center" className={classes.container}>
-          <Typography
-            variant="h4"
-            color="textPrimary"
-            className={classes.homeText}
-            gutterBottom
-          >
-            Father. <br />
-            Developer. <br />
-            Life Long Learner.
-          </Typography>
+        <SocialFloat />
+        <Grid container direction="column" align="center" className={classes.container}>
+          <Collapse in={load} timeout={load ? 4000 : 0} collapsedHeight={0}>
+            <Typography
+              variant="h4"
+              color="textPrimary"
+              className={classes.homeText}
+              gutterBottom
+            >
+              Father. <br />
+              Developer. <br />
+              Life Long Learner.
+            </Typography></Collapse>
           <Divider />
-          <Link href="/blog">
-            <Button variant="contained" color="Primary">
-              View My Blog
-            </Button>
-          </Link>
+          <Collapse in={load} timeout={load ? 2000 : 0} collapsedHeight={0}>
+            <Grid item className={classes.aboutSection}>
+              <About />
+            </Grid>
+          </Collapse>
         </Grid>
+        <Projects className={classes.container} />
       </Paper>
-    </div>
+    </div >
   );
 }

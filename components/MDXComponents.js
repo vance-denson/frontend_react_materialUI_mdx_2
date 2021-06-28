@@ -1,3 +1,7 @@
+/**
+ * styles for MDX posts
+ */
+
 import {
   Typography,
   Container,

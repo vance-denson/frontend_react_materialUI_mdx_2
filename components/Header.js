@@ -1,13 +1,9 @@
 import {
   Toolbar,
-  Divider,
   IconButton,
   Typography,
-  Button,
   Grid,
   AppBar,
-  useScrollTrigger,
-  Paper,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import SwipeMenu from "../components/SwipeMenu";
@@ -40,17 +36,17 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
   const classes = useStyles();
   return (
-    <AppBar position="static" className={classes.appbar} elevation="0">
+    <AppBar position="static" className={classes.appbar}>
       <Toolbar>
         <Grid container direction="row" className={classes.gridContainer}>
-          <Grid item xs="2">
+          <Grid item xs={2}>
             <SwipeMenu>
               <IconButton>
                 <MenuIcon />
               </IconButton>
             </SwipeMenu>
           </Grid>
-          <Grid item xs="10" className={classes.title}>
+          <Grid item xs={10} className={classes.title}>
             <Typography variant="h5" className={classes.headlineText}>
               Vance Denson
             </Typography>

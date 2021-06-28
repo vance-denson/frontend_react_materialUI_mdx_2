@@ -60,35 +60,34 @@ export default function LeftDrawer({ children }) {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {["/home", "/posts/resume", "/projects", "/blog"].map((text, index) => (
+        {["/home", "/data/blog/resume"].map((text, index) => (
           <Link href={index === 0 ? "/" : text} passHref>
             <ListItem button key={text}>
               <ListItemIcon>
                 {index === 0 ? <HomeTwoToneIcon /> : undefined}
                 {index === 1 ? <LibraryBooksIcon /> : undefined}
-                {index === 2 ? <SettingsEthernetTwoToneIcon /> : undefined}
-                {index === 3 ? <MenuBookTwoToneIcon /> : undefined}
               </ListItemIcon>
 
               <Typography variant="subtitle1">
                 {index === 0 ? "Home" : undefined}
                 {index === 1 ? "Resume" : undefined}
-                {index === 2 ? "Projects" : undefined}
-                {index === 3 ? "Blog: Coming Soon" : undefined}
               </Typography>
             </ListItem>
           </Link>
         ))}
       </List>
       <Divider />
+      <Typography align="center" style={{ margin: "10% 0 0 0" }}>Coming Soon</Typography>
       <List>
-        {["Login"].map((text, index) => (
+        {["Blog", "Login"].map((text, index) => (
           <ListItem button key={text} disabled>
             <ListItemIcon>
+              {index === 1 ? <MenuBookTwoToneIcon /> : undefined}
               {index === 0 ? <PersonOutlineTwoToneIcon /> : undefined}
             </ListItemIcon>
             <Typography variant="subtitle1">
-              {index === 0 ? "Login: Coming Soon" : undefined}
+              {index === 1 ? "Blog" : undefined}
+              {index === 0 ? "Login" : undefined}
             </Typography>
           </ListItem>
         ))}
